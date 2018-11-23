@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <% include partials/head %>
+<body>
+    <div class="container">
+        <!-- header -->
+        <% include partials/header %>
+        <!-- nav -->
+        <% include partials/nav %>
+        
+        <!-- <form class="container" action="/listById/" method="GET">
+            
+        </form> -->
+
+        <input class="form-control" type="text" name="id" id="id">
+        <button id="btn-search" class="btn btn-primary" type="submit" onclick="search()">Search</button>
+        <!-- footer -->
+        <% include partials/footer %>
+    </div>
+    <% include partials/scripts %>
+</body>
+
+</html>

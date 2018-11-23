@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <% include partials/head %>
+<body>
+    <div class="container">
+        <% include partials/header %>
+        <% include partials/nav %>
+
+        <table class="table table-dark">
+            <% contacts.forEach(function(contact){ %>
+                <tr>
+                    <td><%=contact.name %></td>
+                    <td><%=contact.email %></td>
+                    <td>
+                        <a href="/updateById/<%=contact._id %>"><button class="btn-primary">Update</button></a>
+                    </td>
+                    <td>
+                        <a class="btn-danger" href="/deleteById/<%=contact._id %>"><button>Delete</button></a>
+                    </td>
+                </tr>
+            <% });  %>
+        </table>
+        <% include partials/footer %>
+    </div>
+</body>
+
+</html>
