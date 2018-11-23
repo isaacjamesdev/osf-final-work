@@ -1,6 +1,7 @@
 module.exports = function(app){
     const controlcontact = app.controlContact;
     const controlView = app.controlView;
+    const controlUtils = app.controlUtils;
 
 // view
     app.get('/', controlView.home);
@@ -9,23 +10,27 @@ module.exports = function(app){
 
     app.get('/search', controlView.search);
 
-    app.get('/updateById/:id', controlView.updateByIdTemplate);
+    app.get('/updateById/:id', controlView.updateById);
     
 // API 
     // Listing contacts → /contacts
     app.get('/contacts', controlcontact.list);
 
-    // • Register a contact → /contacts
-    app.post('/contacts/register', controlcontact.register);
-
     // • Get a contact → /contacts/:id
     app.get('/listById/:id', controlcontact.listById);
 
-    // -----------
-     // • Update a contact → /contacts:id
-     app.post('/updateById/:id', controlcontact.updateById);
+    // • Delete a contact → /contacts/:id
+    app.get('/deleteById/:id', controlcontact.deleteById)
+    
+    // • Update a contact → /contacts:id
+    app.post('/updateById/:id', controlcontact.updateById);
 
-     // • Delete a contact → /contacts/:id
-     app.get('/deleteById/:id', controlcontact.deleteById)
+     // • Register a contact → /contacts
+    app.post('/contacts', controlcontact.register);
+    
+    // UTILS
+    app.get('/utils/removeBlankContacts', controlUtils.removeBlankContacts)
+ 
+    app.get('/utils/removeAllContacts', controlUtils.removeAllContacts)
 
 }

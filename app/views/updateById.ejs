@@ -5,13 +5,12 @@
     <div class="container">
         <% include partials/header %>
         <% include partials/nav %>
-        <!-- hi, i'm waiting by contact.. -->
+        <!-- hi, i'm waiting a contact.. -->
         <% contact.name %>
-        
         
         <form class="container" action="/updateById/:id<%= contact._id %>" method="POST">
             <h2>Form</h2>
-
+            
             <input value="<%= contact._id %>" type="hidden" name="_id" id="_id">
             <div class="form-group">
                 <label for="name">Name</label>
@@ -37,10 +36,10 @@
             <div class="row">
                 <div class="offset-5 col-4">
                     <td>
-                        <button class="btn-primary"><a href="/updateById/<%=contact._id %>"></a>Update</button>
+                        <a href="/updateById/<%=contact._id %>"><button class="btn btn-primary">Update</button></a>
                     </td>
                     <td>
-                        <button class="btn-danger" type="reset" >Clear</button>
+                        <button class="btn btn-warning" type="reset" >Clear</button>
                     </td>
                 </div>
             </div>
